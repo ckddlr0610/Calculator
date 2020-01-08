@@ -39,50 +39,22 @@ public class MainActivity extends AppCompatActivity {
     public void clickbutton(View v) {
         switch (v.getId()) {
             case R.id.btn0:
-                numClick(v);
-                break;
             case R.id.btn1:
-                numClick(v);
-                break;
             case R.id.btn2:
-                numClick(v);
-                break;
             case R.id.btn3:
-                numClick(v);
-                break;
             case R.id.btn4:
-                numClick(v);
-                break;
             case R.id.btn5:
-                numClick(v);
-                break;
             case R.id.btn6:
-                numClick(v);
-                break;
             case R.id.btn7:
-                numClick(v);
-                break;
             case R.id.btn8:
-                numClick(v);
-                break;
             case R.id.btn9:
                 numClick(v);
                 break;
             case R.id.btnAdd:
-                operatorClick(v);
-                break;
             case R.id.btnSub:
-                operatorClick(v);
-                break;
             case R.id.btnMul:
-                operatorClick(v);
-                break;
             case R.id.btnDiv:
-                operatorClick(v);
-                break;
             case R.id.btnPer:
-                operatorClick(v);
-                break;
             case R.id.btnPow:
                 operatorClick(v);
                 break;
@@ -138,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
             mOpeExpr = (String) ((Button)v).getText();
         }
         else if(state == 2){
-            state = 2;
             mOpeExpr = (String) ((Button)v).getText();
         }
         else if (state == 3){
@@ -162,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
     /*
      * 연산자에 따라 다르게 계산 결과값을 리턴합니다.
      */
+
     public int calc(int res){
         state = 0;
         int num1;
@@ -169,18 +141,22 @@ public class MainActivity extends AppCompatActivity {
         num1 = Integer.parseInt(mMathExpr1);
         num2 = Integer.parseInt(mMathExpr2);
 
-        if(mOpeExpr.equals("+")){
-            res = num1 + num2;
-        }
-        else if(mOpeExpr.equals("-")){
-            res = num1 - num2;
-        }
-        else if(mOpeExpr.equals("*")){
-            res = num1*num2;
-        }
-        else{
-            res = num1/num2;
+        switch (mOpeExpr)
+        {
+            case "+":
+                res = num1 + num2;
+                break;
+            case "-":
+                res = num1 - num2;
+                break;
+            case "*":
+                res = num1 * num2;
+                break;
+            case "/":
+                res = num1 / num2;
+                break;
         }
         return res;
     }
+
 }
